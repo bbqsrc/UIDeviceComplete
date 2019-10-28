@@ -69,9 +69,20 @@ public extension UIDeviceComplete where Base == UIDevice {
 public extension UIDeviceComplete where Base == UIDevice {
     var screenSize: Screen {
         let scale: Double = Double(UIScreen.main.scale)
-        let width: Double = Double(UIScreen.main.bounds.width)
-        let height: Double = Double(UIScreen.main.bounds.height)
+        let w: Double = Double(UIScreen.main.bounds.width)
+        let h: Double = Double(UIScreen.main.bounds.height)
 
+        let height: Double
+        let width: Double
+        
+        if h > w {
+            height = h
+            width = w
+        } else {
+            height = w
+            width = h
+        }
+        
         return Screen(width: width, height: height, scale: scale)
     }
 }

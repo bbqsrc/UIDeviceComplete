@@ -43,6 +43,8 @@ public struct Screen {
 // MARK: - Detecting Screen size in Inches
 
 extension Screen {
+    public static let maxSupportedInches: Double = 12.9
+    
     public var sizeInches: Double? {
         switch (height, scale) {
         case (480, _): return 3.5
